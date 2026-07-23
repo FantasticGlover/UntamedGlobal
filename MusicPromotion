@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untamed Global</title>
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base and Main Background */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-image: url('13233.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Floating Background Logo */
+        .floating-bg {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background-image: url('13120.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.15; /* Keeps it subtle so text is readable */
+            z-index: 0;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0% { transform: translate(-50%, 0px); }
+            50% { transform: translate(-50%, -30px); }
+            100% { transform: translate(-50%, 0px); }
+        }
+
+        /* Overlay to ensure readability */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.75);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0;
+            color: #00e5ff;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+        }
+
+        /* Video Section */
+        .video-container {
+            background: rgba(20, 20, 20, 0.85);
+            border: 1px solid #00e5ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.2);
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        /* Artist Sections */
+        .artist-card {
+            background: rgba(20, 20, 20, 0.85);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .artist-card h2 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid #00e5ff;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .artist-bio p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Links & Buttons */
+        .social-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+        }
+
+        .social-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .social-btn:hover {
+            background: #00e5ff;
+            color: #000;
+            border-color: #00e5ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-section h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            background: rgba(0,0,0,0.5); /* Helps PNGs stand out */
+            padding: 10px;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Newsletter Signup */
+        .newsletter-section {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid #00e5ff;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .newsletter-section h3 {
+            margin-top: 0;
+            color: #00e5ff;
+            font-size: 1.8rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            background: #00e5ff;
+            color: #000;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+            box-shadow: 0 0 15px #00e5ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+            padding-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            .artist-card { padding: 25px; }
+            .social-btn { flex: 1 1 100%; justify-content: center; }
+            .newsletter-form input[type="email"] { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating Logo Background -->
+<div class="floating-bg"></div>
+
+<div class="overlay">
+    <div class="container">
+        
+        <header>
+            <h1>Untamed Global</h1>
+        </header>
+
+        <!-- Promo Video Section -->
+        <section class="video-container">
+            <video controls autoplay muted loop>
+                <!-- NOTE: Ensure your uploaded video file on GitHub is named promo.mp4 -->
+                <source src="promo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- Fantastic Glover Section -->
+        <section class="artist-card">
+            <h2>Fantastic Glover</h2>
+            <div class="artist-bio">
+                <p>HipHop artist Fantastic Glover, is no stranger to Adversity. Being born and raised in the small town of Reed, Arkansas, where the odds are very slim to be successful. With a total population of 273, "Good Ain't Good Enough" isn't just his slogan, it's his lifestyle. Fantastic grew up listening to different types of music, but felt it was nothing like music that he could relate to, such as; UGK, Eightball & MJG, Tupac, Dirty Boyz, and Too Short. To each he owes something for becoming the artist that he is today.</p>
+                
+                <p>Fantastic set fire to the Coast2Coast platform winning the OKC edition. He has been all around the U.S. doing music in areas such as Atlanta, Miami, Times Square in New York, Memphis, Dallas, Austin, OKC, All over Arkansas, and the list continues. Fantastic has been featured in Coast2Coast Magazine, XXL magazine, ACE magazine and more. He has various mixtape series such as “Hard to be Humble” and "Good Aint Good Enough" and the main mixtape hosted by Bigga Ranking "Live B4 You Die vol.2" can be found online. His Latest Single "Dance For me", "Energy" (Both colabs with fellow labels mate 84 baby) can be found on any streaming platform. Stay tuned for more up and coming projects, shows, merch, and releases.</p>
+                
+                <p>Fantastic currently resides in the heart of Oklahoma aka Oklahoma City. He has released various songs and has numerous projects, shows, and other exciting news coming very soon. Be sure to follow him on ALL social media platforms @FantasticGlover as well as YouTube and streaming sites. For booking, contact UntamedGlobal405@gmail.com</p>
+            </div>
+
+            <div class="social-container">
+                <a href="https://open.spotify.com/artist/026sMle24XYI7ku6LtQpe8?si=qJVgIpNWTh-cMT8R6vuNXg" class="social-btn" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
+                <a href="https://www.youtube.com/@FantasticGlover" class="social-btn" target="_blank"><i class="fab fa-youtube"></i> Channel</a>
+                <a href="https://youtu.be/l0UhhUFNtNY" class="social-btn" target="_blank"><i class="fas fa-play-circle"></i> Latest Video</a>
+                <a href="https://www.instagram.com/fantasticglover/" class="social-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://twitter.com/FantasticGlover" class="social-btn" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://www.facebook.com/FantasticGlover/" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="mailto:Globalbusiness405@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </section>
+
+        <!-- MI Y Section -->
+        <section class="artist-card">
+            <h2>MI Y</h2>
+            <div class="artist-bio">
+                <p>Mi-Y is an independent artist and co-founder/producer of Untamed Global, known for a signature sound that seamlessly blends pop, hip hop, country, and R&B into something uniquely his own.</p>
+                
+                <p>Recognized for his work alongside Fantastic Glover, Mi-Y brings a versatile, authentic style that continues to stand out in today’s evolving music scene. With a focus on originality, growth, and creative freedom, he consistently pushes boundaries and elevates his sound.</p>
+            </div>
+
+            <div class="social-container">
+                <a href="https://instagram.com/Iammiymadeit" class="social-btn" target="_blank"><i class="fab fa-instagram"></i> Iammiymadeit</a>
+                <a href="https://facebook.com/MiyMadeit" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i> MiyMadeit</a>
+                <a href="https://snapchat.com/add/Mi-Y-Madeit" class="social-btn" target="_blank"><i class="fab fa-snapchat-ghost"></i> Mi-Y-Madeit</a>
+            </div>
+        </section>
+
+        <!-- Visuals & Affiliates Gallery -->
+        <section class="gallery-section">
+            <h3>Brands & Visuals</h3>
+            <div class="gallery-grid">
+                <img src="13154.png" alt="Trap Global Logo 1">
+                <img src="13167.png" alt="Trap Global Logo 2">
+                <img src="13166.png" alt="Untamed Puzzle Logo">
+                <img src="13169.png" alt="Vacant Hearts Logo">
+            </div>
+        </section>
+
+        <!-- Newsletter Signup Section -->
+        <section class="newsletter-section">
+            <h3>Join The Untamed Movement</h3>
+            <p>Sign up with your email to get the latest updates on projects, shows, merch, and releases.</p>
+            <!-- Currently a visual mockup. You can link this to Mailchimp or Formspree later -->
+            <form class="newsletter-form" action="mailto:Globalbusiness405@gmail.com" method="post" enctype="text/plain">
+                <input type="email" name="Email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Untamed Global. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+</div>
+
+</body>
+</html>
